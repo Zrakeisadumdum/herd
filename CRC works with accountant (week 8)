@@ -1,0 +1,14 @@
+public class Main {
+    public static void main(String[] args) {
+        Warehouse w = new Warehouse();
+        Employee emp = new Employee("bob");
+        Product p1 = new Product("flour", 0);
+        Product p2 = new Product("rice", 0);
+        w.addProduct(p1);
+        w.addProduct(p2);
+        w.addEntry(new Entry(p1, 100, "2026-03-31", emp));
+        w.addEntry(new Entry(p2, 50, "2026-03-31", emp));
+        w.addExit(new Exit(p1, 20, "2026-04-01", emp));
+        w.showReport();
+    }
+}
