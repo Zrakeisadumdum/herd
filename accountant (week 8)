@@ -1,0 +1,61 @@
+import java.util.*;
+class Product {
+    String name;
+    int quantity;
+    Product(String name, int quantity) {
+        this.name = name;
+        this.quantity = quantity;
+    }
+}
+class Employee {
+    String name;
+    Employee(String name) {
+        this.name = name;
+    }
+}
+class Entry {
+    Product product;
+    int qty;
+    String date;
+    Employee emp;
+    Entry(Product p, int q, String d, Employee e) {
+        product = p;
+        qty = q;
+        date = d;
+        emp = e;
+    }
+}
+class Exit {
+    Product product;
+    int qty;
+    String date;
+    Employee emp;
+    Exit(Product p, int q, String d, Employee e) {
+        product = p;
+        qty = q;
+        date = d;
+        emp = e;
+    }
+}
+class Warehouse {
+    ArrayList<Product> products = new ArrayList<>();
+    ArrayList<Entry> entries = new ArrayList<>();
+    ArrayList<Exit> exits = new ArrayList<>();
+    void addProduct(Product p) {
+        products.add(p);
+    }
+    void addEntry(Entry e) {
+        entries.add(e);
+        e.product.quantity += e.qty;
+    }
+    void addExit(Exit ex) {
+        exits.add(ex);
+        ex.product.quantity -= ex.qty;
+    }
+    void showReport() {
+        System.out.println("=== List ===");
+        for (Product p : products) {
+            System.out.println(p.name + " spare change: " + p.quantity);
+        }
+    }
+}
